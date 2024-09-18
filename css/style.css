@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    scroll-behavior: smooth;
+
+}
+
+:root {
+    --primary: #b88e2f;
+    --secondary: #FFF3E3;
+    --carousel: #FCF8F3;
+    --white: #fff;
+    --black: #000;
+}
+
+::selection {
+    color: var(--secondary);
+    background-color: var(--primary);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 6px;
+}
+
+body {
+    overflow-x: hidden;
+    background-size: 100vh;
+    background-color: var(--white);
+    /* background-clip: content-box; */
+}
+
+button {
+    border: 1px solid var(--primary);
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+input,
+input+span {
+    border: none;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: top;
+    background-image: url('/assets/back-1.svg');
+}
+
+.font-primary {
+    color: var(--primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.font-secondary {
+    color: var(--secondary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+
+.font-poppins {
+    font-family: 'Poppins' !important;
+}
+
+.font-monteserrat {
+    font-family: 'Montserrat' !important;
+}
+
+.custom-letter {
+    letter-spacing: 3px;
+}
+
+.collapse-navbar {
+    top: -99vh;
+    transition: 0.3s ease-in !important;
+}
+
+.top-0 {
+    top: 0 !important;
+    transition: 0.5s ease-out !important;
+}
+
+.nav-button {
+    border: none !important;
+}
+
+.card {
+    border: none;
+}
+
+#button:hover {
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
+}
+#main-button:hover{
+    border: 2px solid var(--primary) !important;
+    color: var(--primary) !important;
+    background-color: var(--secondary) !important;
+}
+.underline-hover {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.underline-hover::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+.underline-hover:hover::after {
+    width: 100%;
+}
+
+@media only screen and (min-width:992px) {
+    .hero div div {
+        position: relative;
+        left: 50%;
+        margin-top: 200px !important;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    .hero div div {
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px !important;
+    }
+
+}
+
+.carousel {
+    background-color: var(--carousel);
+}
+
+.carousel-caption {
+    bottom: 1rem;
+    left: 5rem;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.2rem' height='1.2rem' viewBox='0 0 24 24'%3E%3Cpath fill='%23b88e2f' d='M10.02 6L8.61 7.41L13.19 12l-4.58 4.59L10.02 18l6-6z'/%3E%3C/svg%3E");
+    color: var(--primary);
+}
+
+.swiper-slide-active {
+    display: none !important;
+}
+
+@media only screen and (max-width:576px) {
+    .swiper-slide {
+        overflow: hidden;
+        width: 100% !important;
+    }
+}
+
+.swiper-slide {
+    width: 100px;
+    height: 300px;
+}
+
+.swiper-button-prev {
+    display: none !important;
+}
+
+.swiper-button-next {
+    background-color: var(--secondary) !important;
+    width: 44px !important;
+    padding: 2px;
+    border-radius: 24px;
+}
+
+.swiper-button-next::after {
+    width: 8px !important;
+}
+
+.hoverCard {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visiblity 0.3s ease;
+}
+
+.card:hover .card-body {
+    visibility: hidden;
+}
+
+.card:hover .hoverCard {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    visibility: visible;
+    background-color: rgba(128, 128, 128, 0.441);
+    opacity: 1;
+}
