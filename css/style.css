@@ -33,7 +33,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: auto;
     background-size: 100vh;
     background-color: var(--white);
     /* background-clip: content-box; */
@@ -64,7 +64,7 @@ input:focus {
     height: 100vh;
     background-size: cover;
     background-position: top;
-    background-image: url('/assets/back-1.svg');
+    background-image: url('../assets/back-1.jpg');
 }
 
 .font-primary {
@@ -101,9 +101,22 @@ input:focus {
     transition: 0.3s ease-in !important;
 }
 
+.nav-icons {
+    width: 30px;
+    height: auto;
+}
+
+@media screen and (max-width:576px) {
+    .nav-icons {
+        width: 25px;
+        height: auto;
+    }
+
+}
+
 .top-0 {
     top: 0 !important;
-    transition: 0.5s ease-out !important;
+    transition: 0.3s ease-out !important;
 }
 
 .nav-button {
@@ -118,11 +131,13 @@ input:focus {
     background-color: var(--primary) !important;
     color: var(--secondary) !important;
 }
-#main-button:hover{
+
+#main-button:hover {
     border: 2px solid var(--primary) !important;
     color: var(--primary) !important;
     background-color: var(--secondary) !important;
 }
+
 .underline-hover {
     position: relative;
     display: inline-block;
@@ -157,7 +172,7 @@ input:focus {
         position: static;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 100px !important;
+        margin-top: 25px !important;
     }
 
 }
@@ -168,7 +183,7 @@ input:focus {
 
 .carousel-caption {
     bottom: 1rem;
-    left: 5rem;
+    left: 6rem;
 }
 
 .swiper-button-next,
@@ -212,6 +227,10 @@ input:focus {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease, visiblity 0.3s ease;
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    justify-content: between !important;
 }
 
 .card:hover .card-body {
@@ -221,8 +240,31 @@ input:focus {
 .card:hover .hoverCard {
     display: flex;
     gap: 5px;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center !important;
     visibility: visible;
     background-color: rgba(128, 128, 128, 0.441);
     opacity: 1;
+}
+
+.cart {
+    transition: all 0.3s ease-in-out;
+    display: flex !important;
+    width: 350px !important;
+    transform: translateX(0);
+}
+
+.cart-active {
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-100vh);
+}
+.wish{
+    transition: all 0.3s ease-in-out;
+    display: flex !important;
+    width: 350px !important;
+    transform: translateX(0);
+}
+.wish-active{
+    transition: all 0.3s ease-in-out;
+    transform: translateX(100vh);
 }

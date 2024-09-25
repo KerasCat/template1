@@ -1,0 +1,42 @@
+[
+     {
+          "id": 1,
+          "name": "Syltherine",
+          "price": 2500
+     },
+     {
+          "id": 2,
+          "name": "Leviosa",
+          "price": 2500
+     },
+     {
+          "id": 3,
+          "name": "Lolito",
+          "price": 7000
+     },
+     {
+          "id": 4,
+          "name": "Respira",
+          "price": 500
+     },
+     {
+          "id": 5,
+          "name": "Grifo",
+          "price": 1500
+     },
+     {
+          "id": 6,
+          "name": "Muggo",
+          "price": 150
+     },
+     {
+          "id": 7,
+          "name": "Pingky",
+          "price": 7000
+     },
+     {
+          "id": 8,
+          "name": "Potty",
+          "price": 500
+     }
+]

@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-    <link rel="manifest" href="/assets/site.webmanifest">
-    <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#b88e2f">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#b88e2f">
+    <link rel="shortcut icon" href="./assets/favicon.ico">
     <meta name="msapplication-TileColor" content="#fff3e3">
-    <meta name="msapplication-config" content="/assets/browserconfig.xml">
+    <meta name="msapplication-config" content="./assets/browserconfig.xml">
     <meta name="theme-color" content="#fff3e3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -19,18 +19,37 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
 
 <body class="body">
     <section id="header"
-        class="header container d-flex justify-content-between align-items-center sticky-top bg-white rounded-4 rounded-top-0 py-3 ">
+        class="header container d-flex justify-content-between align-items-center sticky-top bg-light-subtle rounded-4 rounded-top-0 py-3 ">
         <div class="logo">
-            <img src="/assets//Meubel House_Logos-05.svg" alt="logo">
-            <h1 class="d-inline fw-bold fs-2 align-middle">Furniro</h1>
+            <a href="#home">
+
+                <img src="./assets//Meubel House_Logos-05.svg" alt="logo">
+                <h1 class="d-inline fw-bold fs-2 align-middle">Furniro</h1>
+            </a>
+        </div>
+
+        <div class="nav-links d-flex d-lg-none gap--md-4 gap-3  list-unstyled d-inline-flex ">
+            <li class=""><a class="underline-hover" href=""><img class="nav-icons"
+                        src="./assets/mdi_account-alert-outline.jpg" alt=""></a>
+            </li>
+            <li class=""><a class="underline-hover" id="search" onclick="toggleSearch()"><img class="nav-icons"
+                        src="./assets/akar-icons_search.jpg" alt=""></a>
+            </li>
+            <li class=""><a class="underline-hover" id="wishlist" onclick="toggleWish()"><img class="nav-icons"
+                        src="./assets/Heart.jpg" alt=""></a>
+                <p id="wishitem1" class="bg-danger rounded-circle text-center position-absolute badge z-3"></p>
+            </li>
+            <li class=" position-relative">
+                <a class="underline-hover" id="cart" onclick="toggleCart()"><img class="nav-icons"
+                        src="./assets/ant-design_shopping-cart-outlined.jpg" alt=""></a>
+                <p id="cartitem1" class="bg-danger rounded-circle text-center position-absolute badge w-75 p-1 z-3"></p>
+            </li>
         </div>
         <div class="nav-links d-none d-lg-inline-flex list-unstyled gap-5">
             <li><a class="text-black fs-6 fw-medium text-decoration-none underline-hover" href="#home">Home</a></li>
@@ -39,24 +58,74 @@
             </li>
             <li><a class="text-black fs-6 fw-medium text-decoration-none underline-hover" href="#footer">About</a></li>
         </div>
-        <div class="nav-links d-none d-lg-inline-flex gap-5 list-unstyled d-inline-flex ">
-            <li class=""><img src="/assets/mdi_account-alert-outline.svg" alt=""></li>
-            <li class=""><img src="/assets/akar-icons_search.svg" alt=""></li>
-            <li class=""><img src="/assets/Heart.svg" alt=""></li>
-            <li class=""><img src="/assets/ant-design_shopping-cart-outlined.svg" alt=""></li>
+        <div id="collapse-navbar-title" class="nav-links d-none d-lg-inline-flex gap-3 list-unstyled d-inline-flex ">
+            <li class=""><button class="underline-hover border-0" id="" href=""><img class="nav-icons"
+                        src="./assets/mdi_account-alert-outline.jpg" alt=""></button></li>
+            <li class=""><button class="underline-hover border-0" id="search" href="" onclick="toggleSearch()"><img
+                        class="nav-icons" src="./assets/akar-icons_search.jpg" alt=""></button></li>
+            <li class=""><button class="underline-hover border-0" id="wishlist" onclick="toggleWish()"><img
+                        class="nav-icons" src="./assets/Heart.jpg" alt="">
+                    <p id="wishitem2" class="bg-danger rounded-circle text-center position-absolute badge z-3"></p>
+                </button></li>
+            <li class="">
+                <button class="underline-hover border-0" id="cart" onclick="toggleCart()" href="">
+                    <img class="nav-icons" src="./assets/ant-design_shopping-cart-outlined.jpg" alt="">
+                    <p id="cartitem2" class="bg-danger rounded-circle text-center position-absolute badge z-3"></p>
+                </button>
+            </li>
         </div>
         <div class="d-lg-none"><button class="nav-button" onclick="toggleNavbar()">
-                <img src="/assets/hamburger.svg" alt=""></button>
+                <img class="nav-icons" src="./assets/hamburger.svg" alt=""></button>
+        </div>
+        <div
+            class="CART bg-secondary cart-active cart bottom-0 d-flex flex-column justify-content-between  shadow h-100 overflow-x-hidden overflow-y-auto position-fixed z-3 start-0">
+            <div id="product-holder" class="overflow-x-auto my-5 d-flex flex-column gap-2 px-4 mb-4 ">
+                <h3 class="my-5 font-poppins font-primary w-100">Add Items to the Cart</h3>
+                <!-- <li class="list-unstyled d-flex flex-column" id="cartItem">
+                    <h5>Item Name <span id="item-name"></span></h5>
+                    <h6>Price <span id="item-price"></span></h6>
+                    <div class="d-flex gap-2">
+                        <p class="fw-semibold">Quantity- <span id="item-quantity"></span></p>
+                        <button class=" m-auto">+</button>
+                        <button class=" m-auto">-</button>
+                        <button class=" m-auto">Remove</button>
+                    </div>
+                </li> -->
+            </div>
+            <button class="position-absolute btn bg-primary font-secondary end-0 px-3 me-2 mt-2"
+                onclick="toggleCart()">X</button>
+            <div class=" bottom-0 py-2 mt-2 d-flex gap-2 w-100 bg-primary text-secondary container-fluid">
+                <button class="btn font-poppins font-primary bg-secondary">BUY NOW</button>
+                <p id="total-price" class="font-poppins fw-semibold font-secondary text-center m-auto"></p>
+            </div>
+        </div>
+        <div
+            class=" WISHLIST  bg-secondary wish-active wish bottom-0 d-flex flex-column justify-content-between  shadow h-100 overflow-x-hidden overflow-y-auto position-fixed z-3 end-0">
+            <div id="wishlist-holder" class="overflow-x-auto my-5 d-flex flex-column gap-2 px-4 mb-4 me-5  ">
+                <h3 class="my-5 font-poppins font-primary w-100">Add Items to the Cart</h3>
+                <!-- <li class="list-unstyled d-flex flex-column" id="cartItem">
+                    <h5>Item Name <span id="item-name"></span></h5>
+                    <h6>Price <span id="item-price"></span></h6>
+                    <div class="d-flex gap-2">
+                        <p class="fw-semibold">Quantity- <span id="item-quantity"></span></p>
+                        <button class=" m-auto">+</button>
+                        <button class=" m-auto">-</button>
+                        <button class=" m-auto">Remove</button>
+                    </div>
+                </li> -->
+            </div>
+            <button class="position-absolute btn bg-primary font-secondary start-0 px-3 me-2 mt-2"
+                onclick="toggleWish()">X</button>
         </div>
         <div
             class="collapse-navbar position-absolute d-block d-lg-none container row bg-white list-unstyled fs-6 py-4 rounded-3 shadow z-3">
 
             <div class="d-flex flex-row-reverse justify-content-between me-2">
 
-                <button class="nav-button" onclick="toggleNavbar()"><img src="/assets/close.svg"
+                <button class="nav-button" onclick="toggleNavbar()"><img src="./assets/close.svg"
                         alt="collapse button"></button>
                 <div class="logo">
-                    <img src="/assets//Meubel House_Logos-05.svg" alt="logo">
+                    <img src="./assets//Meubel House_Logos-05.svg" alt="logo">
                     <h1 class="d-inline fw-bold fs-2 align-middle">Furniro</h1>
                 </div>
             </div>
@@ -71,7 +140,15 @@
                         href="#footer">About</a></li>
             </div>
         </div>
-
+        <div
+            class="searchbox position-fixed w-100  container-fluid h-100 top-0 d-flex justify-content-center bg-dark d-none bg-opacity-50 start-0">
+            <button class="position-absolute btn bg-primary font-secondary start-0 px-3 ms-2 mt-2"
+                onclick="toggleSearch()">X</button>
+            <form action="" method="get" class="m-auto h2 d-flex gap-2 flex-wrap justify-content-center  ">
+                <input type="text" class="rounded-4 border px-2 ">
+                <button type="" class="border-2 rounded-4 bg-primary font-secondary px-1">Search</button>
+            </form>
+        </div>
     </section>
     <section id="home" class="hero w-sm-50">
         <div class=" m-auto row  p-0 d-lg-flex  position-relative start-md-50 w-100">
@@ -87,7 +164,7 @@
         </div>
     </section>
 
-    <section id="Products">
+    <section id="Products" class="Products w-100">
         <div class="justify-content-center d-flex flex-column align-items-center  mt-5">
             <h2 class="fs-3 fw-bold font-poppins">Browse The Range</h2>
             <p class="fs-5 d-block font-poppins w-75 text-center ">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -95,27 +172,27 @@
             </p>
             <div class="container row">
 
-                <div class="col-md-4 col-6 d-flex flex-column align-items-center">
+                <div class="col-md-4 d-flex flex-column align-items-center">
                     <article>
-                        <img src="/assets//Image-living room 3.png" alt="Image-living" class="img-fluid">
+                        <img src="./assets/Image-living room 3.png" alt="Image-living" class="img-fluid">
                         <p class="fs-4 align-items-center d-flex justify-content-center fw-semibold font-poppins mt-4">
                             Dining
                         </p>
                     </article>
 
                 </div>
-                <div class="col-md-4 col-6 d-flex flex-column align-items-center">
+                <div class="col-md-4 d-flex flex-column align-items-center">
                     <article>
-                        <img src="/assets//Image-living room.png" alt="Image-living" class="img-fluid">
+                        <img src="./assets/Image-living room.png" alt="Image-living" class="img-fluid">
                         <p class="fs-4 align-items-center d-flex justify-content-center fw-semibold font-poppins mt-4">
                             Living
                         </p>
                     </article>
 
                 </div>
-                <div class="col-md-4 col-8 m-auto justify-content-center d-flex flex-column align-items-center">
+                <div class="col-md-4 m-auto justify-content-center d-flex flex-column align-items-center">
                     <article>
-                        <img src="/assets//Image-living room 2.png" alt="Image-living" class="img-fluid">
+                        <img src="./assets/Image-living room 2.png" alt="Image-living" class="img-fluid">
                         <p class="fs-4 align-items-center d-flex justify-content-center fw-semibold font-poppins mt-4">
                             Bedroom
                         </p>
@@ -125,8 +202,8 @@
         </div>
         <div class="container">
             <h1 class="text-center mt-5">Our Products</h1>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 1.png" class="card-img-top" alt="Syltherine">
                         <div class="card-body">
@@ -138,173 +215,181 @@
                         </div>
                         <div
                             class="hoverCard align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2 ">
+                            <button onclick="addToCart(1)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap ">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(1)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 2.png" class="card-img-top" alt="Leviosa">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Leviosa</h5>
                             <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
                             <p class="card-text fw-semibold">Rp 2.500.000</p>
 
                         </div>
                         <div
                             class="hoverCard  align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2 ">
+                            <button onclick="addToCart(2)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap ">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(2)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 3.png" class="card-img-top" alt="Lolito">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
-                            <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
-                            <p class="card-text fw-semibold">Rp 2.500.000 <small class="text-muted"><strike>Rp
-                                        3.500.000</strike></small></p>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Lolito</h5>
+                            <p class="card-text text-secondary font-poppins fw-medium ">Luxury Big Sofa</p>
+                            <p class="card-text fw-semibold">Rp 7,500.000 <small class="text-muted"><strike>Rp
+                                        14,000.000</strike></small></p>
                         </div>
                         <div
                             class="hoverCard  align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2">
+                            <button onclick="addToCart(3)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(3)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 4.png" class="card-img-top" alt="Respira">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
-                            <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
-                            <p class="card-text fw-semibold">Rp 2.500.000</p>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Respira</h5>
+                            <p class="card-text text-secondary font-poppins fw-medium ">Outdoor Bar Table and Stool</p>
+                            <p class="card-text fw-semibold">Rp 500.000</p>
                         </div>
                         <div
                             class="hoverCard  align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2">
+                            <button onclick="addToCart(4)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(4)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 9.png" class="card-img-top" alt="Syltherine">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
-                            <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
-                            <p class="card-text fw-semibold">Rp 2.500.000</p>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Grifo</h5>
+                            <p class="card-text text-secondary font-poppins fw-medium ">Night Lamp</p>
+                            <p class="card-text fw-semibold">Rp 1.500.000</p>
                         </div>
                         <div
                             class="hoverCard  align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2">
+                            <button onclick="addToCart(5)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(5)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 6.png" class="card-img-top" alt="Leviosa">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
-                            <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
-                            <p class="card-text fw-semibold">Rp 2.500.000</p>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Muggo</h5>
+                            <p class="card-text text-secondary font-poppins fw-medium ">Small Mug</p>
+                            <p class="card-text fw-semibold">Rp 150.000</p>
                         </div>
                         <div
                             class="hoverCard  align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2">
+                            <button onclick="addToCart(6)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(6)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 7.png" class="card-img-top" alt="Lolito">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
-                            <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
-                            <p class="card-text fw-semibold">Rp 2.500.000 <small class="text-muted"><strike>Rp
-                                        3.500.000</strike></small></p>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Pinkgy</h5>
+                            <p class="card-text text-secondary font-poppins fw-medium ">Cute Bed Set</p>
+                            <p class="card-text fw-semibold">Rp 7,000.000 <small class="text-muted"><strike>Rp
+                                        14,000.000</strike></small></p>
                         </div>
                         <div
                             class="hoverCard align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2">
+                            <button onclick="addToCart(7)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(7)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6 mb-3 productCard">
+                <div class="col-lg-3 col-md-6 col-sm-10 mb-3 productCard">
                     <div class="card bg-light">
                         <img src="./assets//image 8.png" class="card-img-top" alt="Respira">
                         <div class="card-body">
-                            <h5 class="card-title font-poppins fw-semibold fs-4">Syltherine</h5>
-                            <p class="card-text text-secondary font-poppins fw-medium ">Stylish cafe chair</p>
-                            <p class="card-text fw-semibold">Rp 2.500.000</p>
+                            <h5 class="card-title font-poppins fw-semibold fs-4">Potty</h5>
+                            <p class="card-text text-secondary font-poppins fw-medium ">Minimalist Flower Pot</p>
+                            <p class="card-text fw-semibold">Rp 500.000</p>
                         </div>
                         <div
                             class="hoverCard  align-items-center w-100 flex-column position-absolute h-100 m-auto d-flex  z-3">
-                            <button id="button" class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
-                            <div class="d-flex gap-2">
+                            <button onclick="addToCart(8)" id="button"
+                                class="bg-secondary font-poppins font-primary py-2">Add to Cart</button>
+                            <div class="d-flex gap-2 flex-wrap">
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//share.svg" alt="share-icon">Share</a>
+                                        src="./assets//share.png" alt="share-icon">Share</a>
                                 <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//compare.svg" alt="compare-icon">Compare</a>
-                                <a class="text-white font-poppins d-flex" href="#"><img class="img-fluid"
-                                        src="./assets//like.svg" alt="like-icon">Like</a>
+                                        src="./assets//compare.png" alt="compare-icon">Compare</a>
+                                <button class=" border-0 text-white font-poppins d-flex" onclick="addToWishlist(8)"><img
+                                        class="img-fluid" src="./assets//like.png" alt="like-icon"> Like</button>
                             </div>
                         </div>
                     </div>
@@ -332,37 +417,37 @@
                         <div class="swiper-slide">
                             <img class="img-fluid" src="./assets//Rectangle 24.png" alt="carousel image">
                             <p
-                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption">
+                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption w-25">
                                 Living Room</p>
                         </div>
                         <div class="swiper-slide">
                             <img class="img-fluid" src="./assets//Rectangle 24.png" alt="carousel image">
                             <p
-                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption">
+                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption w-25">
                                 Living Room</p>
                         </div>
                         <div class="swiper-slide">
                             <img class="img-fluid" src="./assets//Rectangle 24.png" alt="carousel image">
                             <p
-                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption">
+                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption w-25">
                                 Living Room</p>
                         </div>
                         <div class="swiper-slide">
                             <img class="img-fluid" src="./assets//Rectangle 24.png" alt="carousel image">
                             <p
-                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption">
+                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption w-25">
                                 Living Room</p>
                         </div>
                         <div class="swiper-slide">
                             <img class="img-fluid" src="./assets//Rectangle 24.png" alt="carousel image">
                             <p
-                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption">
+                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption w-25">
                                 Living Room</p>
                         </div>
                         <div class="swiper-slide">
                             <img class="img-fluid" src="./assets//Rectangle 24.png" alt="carousel image">
                             <p
-                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption">
+                                class="font-poppins fw-semibold fs-6  position-absolute bg-secondary font-primary p-2 m-0 carousel-caption w-25">
                                 Living Room</p>
                         </div>
                         <div class="swiper-slide">
@@ -405,16 +490,23 @@
                 </div>
                 <div class="col-md-2 col-sm-6 list-unstyled">
                     <li class="font-poppins fs-6 fw-normal text-secondary mb-4">Links</li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> Home</a></li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> Shop</a></li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> About</a></li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> Contact</a></li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href=""> Home</a>
+                    </li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href=""> Shop</a>
+                    </li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href=""> About</a>
+                    </li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href="">
+                            Contact</a></li>
                 </div>
                 <div class="col-md-2 col-sm-6 list-unstyled">
                     <li class="font-poppins fs-6 fw-normal text-secondary mb-4">Help</li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> Payment Options</a></li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> Returns</a></li>
-                    <li class="font-poppins fs-6 fw-semibold my-5"><a href=""> Privacy Policies</a></li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href=""> Payment
+                            Options</a></li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href="">
+                            Returns</a></li>
+                    <li class="font-poppins fs-6 fw-semibold my-md-5 my-3"><a class="underline-hover" href=""> Privacy
+                            Policies</a></li>
                 </div>
                 <div class="col-md-4 col-sm-6 list-unstyled gap-2 mb-3">
                     <li class="font-poppins fs-6 fw-normal text-secondary mb-4 ">Newsletter</li>
@@ -423,7 +515,7 @@
                 </div>
             </div>
             <div class="row border-top">
-                <h5 class="fw-semibold my-4 fs-6 ">2023 Furino. All rights reserved</h5>
+                <h5 class="fw-semibold my-md-4 my-2 fs-6 ">2023 Furino. All rights reserved</h5>
             </div>
         </div>
     </section>
@@ -434,17 +526,17 @@
     crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>function toggleNavbar() { document.getElementsByClassName('collapse-navbar').item(0).classList.toggle('top-0'); }</script>
+<script></script>
 <script>
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,
+        slidesPerView: 1.01,
         spaceBetween: 20,
         autoHeight: true,
-        autoplay: {
-            delay: 3000,
-        },
-        autoplay: true,
         loop: true,
+        // autoplay: {
+        //     delay: 3000,
+        // },
+        // autoplay: true,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
